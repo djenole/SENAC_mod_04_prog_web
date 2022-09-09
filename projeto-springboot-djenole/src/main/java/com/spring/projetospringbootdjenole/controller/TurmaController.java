@@ -13,7 +13,7 @@ public class TurmaController {
 
     @GetMapping("listaTurmas")
     public ModelAndView listarTodasTurmas(){
-        ModelAndView mv = new ModelAndView("turma/listaTurmas");
+        ModelAndView mv = new ModelAndView("turma/listaTurmasPage");
         mv.addObject("turmas", turmaService.buscarTodasTurmas());
         return mv;
     }

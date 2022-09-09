@@ -18,7 +18,7 @@ public class AlunoController {
 
     @GetMapping("listarAlunos")
     public ModelAndView listarTodosAlunos() {
-        ModelAndView mv = new ModelAndView("aluno/paginaListaAlunos");
+        ModelAndView mv = new ModelAndView("aluno/listaAlunosPage");
         mv.addObject("alunos", service.buscarTodosAlunos());
         return mv;
     }

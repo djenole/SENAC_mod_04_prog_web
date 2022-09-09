@@ -17,7 +17,7 @@ public class CursoController {
 
     @GetMapping("listarCursos")
     public ModelAndView listarTodosCursos() {
-        ModelAndView mv = new ModelAndView("curso/paginaListarCursos");
+        ModelAndView mv = new ModelAndView("curso/listaCursosPage");
         mv.addObject("cursos", cursoService.buscarTodosCursos());
         return mv;
     }
