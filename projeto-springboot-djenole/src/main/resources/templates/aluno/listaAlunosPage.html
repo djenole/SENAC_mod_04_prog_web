@@ -32,8 +32,8 @@
                                 <td th:text="${aluno.nome}"></td>
                                 <td>
                                     <div class="btn-group pull-right">
-                                        <a class="btn btn-sm btn-primary">ALTERAR</a>
-                                        <a class="delete btn btn-sm btn-danger">EXCLUIR</a>
+                                        <a class="btn btn-sm btn-primary" th:href="@{/aluno/alterarAluno/{id}(id=${aluno.id})}">ALTERAR</a>
+                                        <a class="delete btn btn-sm btn-danger" th:href="@{/aluno/deletarPorId/{id}(id=${aluno.id})}">EXCLUIR</a>
                                     </div>
                                 </td>
                             </tr>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-sm btn-success">CADASTRAR DOCUMENTO</a>
+        <a class="btn btn-sm btn-success" th:href="@{/aluno/cadastrarAluno}">CADASTRAR aluno</a>
     </div>
 
 </body>
