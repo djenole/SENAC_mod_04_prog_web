@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.projetospringbootdjenole.entity.Aluno;
 import com.spring.projetospringbootdjenole.service.AlunoService;
+import com.spring.projetospringbootdjenole.service.TurmaService;
 
 @Controller
 @RequestMapping("aluno")
@@ -18,11 +19,15 @@ public class AlunoController {
 
     @Autowired
     private AlunoService service;
+    
+    @Autowired
+    private TurmaService turmaService;
 
     @GetMapping("/listarAlunos")
     public ModelAndView listarTodosAlunos() {
         ModelAndView mv = new ModelAndView("aluno/listaAlunosPage");
         mv.addObject("alunos", service.buscarTodosAlunos());
+        
         return mv;
     }
 
@@ -30,6 +35,7 @@ public class AlunoController {
     public ModelAndView cadastrarAluno() {
     	ModelAndView mv = new ModelAndView("aluno/cadastrarAluno");
     	mv.addObject("aluno", new Aluno());
+    	mv.addObject("listaTurma", turmaService.buscarTodasTurmas());
     	return mv;
     }
     
@@ -50,6 +56,8 @@ public class AlunoController {
     public ModelAndView alterarAluno(@PathVariable("id") Integer id) {
     	ModelAndView mv = new ModelAndView("aluno/alterarAluno");
     	mv.addObject("aluno", service.buscarPorId(id));
+    	mv.addObject("listaTurma", turmaService.buscarTodasTurmas());
+
     	return mv;
     }
     
