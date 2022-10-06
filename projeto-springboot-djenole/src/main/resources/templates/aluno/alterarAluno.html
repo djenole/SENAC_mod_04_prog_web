@@ -59,6 +59,15 @@
                   />
                  
                 </div>
+                
+                <div class="form-group row"> 
+                <label>Turma</label>
+                <select class="form-control" th:field="*{turma}">
+                	<option value="">Selecione a turma </option>
+                	<option th:each="objetoTurma : ${listaTurma}" th:value="${objetoTurma.id}" th:text="${objetoTurma.nome}"> </option>
+                	
+                </select>
+                </div>                
               </fieldset>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
