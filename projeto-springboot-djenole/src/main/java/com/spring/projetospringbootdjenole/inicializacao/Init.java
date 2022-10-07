@@ -1,5 +1,8 @@
 package com.spring.projetospringbootdjenole.inicializacao;
 
+
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import com.spring.projetospringbootdjenole.entity.Aluno;
 import com.spring.projetospringbootdjenole.entity.Curso;
-import com.spring.projetospringbootdjenole.entity.Professor;
 import com.spring.projetospringbootdjenole.entity.Turma;
 import com.spring.projetospringbootdjenole.service.AlunoService;
 import com.spring.projetospringbootdjenole.service.CursoService;
@@ -22,7 +24,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent>{
 	
 
 	@Autowired
-	CursoService cursoService;
+	private CursoService cursoService;
 
 	@Autowired
 	ProfessorService professorService;
@@ -37,16 +39,55 @@ public class Init implements ApplicationListener<ContextRefreshedEvent>{
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		
+	
+		
+		
+
+		Curso c1 = new Curso();
+		c1.setNome("JavaScript");
+		cursoService.salvar(c1);
+		
+		Curso c2 = new Curso();
+		c2.setNome("C++");
+		cursoService.salvar(c2);
+		
+		Curso c3 = new Curso();
+		c3.setNome("Java");
+		cursoService.salvar(c3);
+		
+		Curso c4 = new Curso();
+		c4.setNome("React");
+		cursoService.salvar(c4);
+		
+		List<Curso> listaCursos1 = new ArrayList();
+		listaCursos1.add(c1);
+		listaCursos1.add(c4);
+		
+		
+		List<Curso> listaCursos2 = new ArrayList();
+		listaCursos1.add(c2);
+		listaCursos1.add(c3);
+		
+		
+		
+		
+		
+		
+//			TURMA
+		
 		Turma t1 = new Turma();
 		t1.setNome("turma 1");
+		t1.setCurso(listaCursos1);
 		turmaService.salvar(t1);
 
 		Turma t2 = new Turma();
 		t2.setNome("turma 2");
+		t2.setCurso(listaCursos2);
 		turmaService.salvar(t2);
 		
 		Turma t3 = new Turma();
 		t3.setNome("turma 3");
+		t3.setCurso(listaCursos2);
 		turmaService.salvar(t3);
 		
 		
@@ -71,7 +112,14 @@ public class Init implements ApplicationListener<ContextRefreshedEvent>{
 		alunoService.salvar(aluno1);
 		alunoService.salvar(aluno2);
 		alunoService.salvar(aluno3);
-//		
+		
+		
+		
+		
+		
+		
+		
+		
 //		List<Aluno> listaAlunos = alunoService.buscarTodosAlunos();
 //		for (Aluno aluno : listaAlunos) {
 //			System.out.println(aluno.getNome());

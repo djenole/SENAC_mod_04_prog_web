@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" <xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+   <title>CRUD SPRING BOOT</title>
+  </head>
+
+  <body>
+    <div class="container-fluid" style="margin: 0 auto">
+      <div class="row" style="display: flex; justify-content: center">
+        <div class="col-5">
+          <h3 style="display: flex; justify-content: center">
+            Cadastrar Turma
+          </h3>
+          <p style="font-weight: bolder">Id gerado automaticamente</p>
+          <form
+            method="post"
+            class="form-horizontal"
+            th:action="@{/turma/salvar}"
+            th:object="${turma}"
+          >
+            <div class="form-group">
+              <fieldset>
+                <div class="form-group row">
+                  <label>Turma</label>
+                  <input
+                    type="text"
+                    class="form-control input-sm"
+                    th:field="*{turma}"
+                    id="exampleFormControlInput1"
+                    placeholder="turma"
+                  />
+                </div>
+                
+                
+                <div class="form-group row">
+                <label>Curso</label>
+                <div th:each="objetoCurso : ${listaCurso}">
+                	<input type="checkbox" th:field="*{cursos}" th:value="${objetoCurso.nome}"/>
+                	
+                	<label th:text="${objetoCurso.nome}"></label>
+                </div>
+                
+                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></>
+    <
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></>
+    <
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></>
+  </body>
+</html>
+
+
+
+
+
+
+;
